@@ -40,11 +40,43 @@ function cheakWin(){
         let v2 = boxes[winConditions[i][2]].innerHTML;
 
         if(v0 != "" && v0 === v1 && v0 === v2){
-            alert(turn)
+            isGameOver = true;
+            document.querySelector("#results").innerHTML = turn + " Win";
+            document.querySelector("#play-again").style.display = "inline";
+
+            for(j=0; j<3; j++){
+                 boxes[winConditions[i][j]].style.backgroundColor = "#08d9d6"
+                 boxes[winConditions[i][j]].style.color = "#000"
+            }
         }
     }
 }
 
 function cheakDraw(){
+    if(!isGameOver){
+        let isDraw = true;
+        boxes.forEach(e =>{
+            if(e.innerHTML === "") isDraw = false;
+        })
 
+        if(isDraw){
+            isGameOver = true;
+            document.querySelector("#results").innerHTML = "DraW";
+            document.querySelector("#play-again").style.display = "inline";
+        }
+    }
 }
+
+document.querySelector("#play-again").addEventListener("click", ()=> {
+    isGameOver = false;
+    turn = "X";
+    document.querySelector(".bg").style.left = "0";
+    document.querySelector("#results").innerHTML = "";
+    document.querySelector("#play-again").style.display = "none";
+
+    boxes.forEach(e=> {
+        e.innerHTML = "";
+        e.style.removeProperty("background-color");
+        e.style.color = "#fff"
+    })
+})

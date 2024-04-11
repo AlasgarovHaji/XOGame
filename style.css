@@ -12,7 +12,7 @@
 }
 
 body{
-    background-color: #252A34;
+    background-color: #CCCCFF;
     margin: 0;
     padding: 0;
     width: 100vw;
@@ -77,6 +77,10 @@ body{
     background-color: #ff2e63;
 }
 
+.box:active{
+    background-color: #ac0707;
+}
+
 #play-again{
     background-color: #ff2e63;
     padding: 10px 25px;
@@ -84,6 +88,7 @@ body{
     font-size: 1.2rem;
     border-radius: 5px;
     cursor: pointer;
+    display: none;
 }
 
 #play-again:hover{
